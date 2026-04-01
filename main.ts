@@ -561,8 +561,6 @@ class VoiceNotesSettingTab extends PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
 
-    new Setting(containerEl).setName("Say").setHeading();
-
     new Setting(containerEl).setName("API keys").setHeading();
 
     new Setting(containerEl)
@@ -595,16 +593,16 @@ class VoiceNotesSettingTab extends PluginSettingTab {
         text.inputEl.addClass("voice-notes-input-full");
       });
 
-    new Setting(containerEl).setName("Claude settings").setHeading();
+    new Setting(containerEl).setName("Claude").setHeading();
 
     new Setting(containerEl)
       .setName("Model")
       .setDesc("Which Claude model to use for summarization.")
       .addDropdown((drop) =>
         drop
-          .addOption("claude-opus-4-6", "Claude Opus 4.6 — Most capable")
-          .addOption("claude-sonnet-4-6", "Claude Sonnet 4.6 — Fast & smart")
-          .addOption("claude-haiku-4-5", "Claude Haiku 4.5 — Fastest")
+          .addOption("claude-opus-4-6", "Claude Opus 4.6 — most capable")
+          .addOption("claude-sonnet-4-6", "Claude Sonnet 4.6 — fast & smart")
+          .addOption("claude-haiku-4-5", "Claude Haiku 4.5 — fastest")
           .setValue(this.plugin.settings.model)
           .onChange(async (value) => {
             this.plugin.settings.model = value;
@@ -643,7 +641,7 @@ class VoiceNotesSettingTab extends PluginSettingTab {
           })
       );
 
-    new Setting(containerEl).setName("Note settings").setHeading();
+    new Setting(containerEl).setName("Notes").setHeading();
 
     new Setting(containerEl)
       .setName("Include full transcript")
@@ -702,11 +700,11 @@ export default class VoiceNotesPlugin extends Plugin {
 
   private openRecordingModal() {
     if (!this.settings.anthropicApiKey) {
-      new Notice("Say: add your Anthropic API key in Settings → Say.");
+      new Notice("Say: add your Anthropic API key in settings → Say.");
       return;
     }
     if (!this.settings.openAiApiKey) {
-      new Notice("Say: add your OpenAI API key in Settings → Say.");
+      new Notice("Say: add your OpenAI API key in settings → Say.");
       return;
     }
     // getMostRecentLeaf() survives ribbon/command-palette focus shifts,

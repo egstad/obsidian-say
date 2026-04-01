@@ -1,7 +1,7 @@
 {
   "id": "voice-notes-ai",
   "name": "Say",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "minAppVersion": "0.15.0",
   "description": "Record audio, transcribe with Whisper, and summarize + tag with Claude AI.",
   "author": "Jordan Egstad",

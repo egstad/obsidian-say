@@ -4129,7 +4129,6 @@ var VoiceNotesSettingTab = class extends import_obsidian.PluginSettingTab {
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    new import_obsidian.Setting(containerEl).setName("Say").setHeading();
     new import_obsidian.Setting(containerEl).setName("API keys").setHeading();
     new import_obsidian.Setting(containerEl).setName("Anthropic API key").setDesc("Used for Claude summarization and tagging.").addText((text) => {
       text.setPlaceholder("sk-ant-\u2026").setValue(this.plugin.settings.anthropicApiKey).onChange(async (value) => {
@@ -4147,9 +4146,9 @@ var VoiceNotesSettingTab = class extends import_obsidian.PluginSettingTab {
       text.inputEl.type = "password";
       text.inputEl.addClass("voice-notes-input-full");
     });
-    new import_obsidian.Setting(containerEl).setName("Claude settings").setHeading();
+    new import_obsidian.Setting(containerEl).setName("Claude").setHeading();
     new import_obsidian.Setting(containerEl).setName("Model").setDesc("Which Claude model to use for summarization.").addDropdown(
-      (drop) => drop.addOption("claude-opus-4-6", "Claude Opus 4.6 \u2014 Most capable").addOption("claude-sonnet-4-6", "Claude Sonnet 4.6 \u2014 Fast & smart").addOption("claude-haiku-4-5", "Claude Haiku 4.5 \u2014 Fastest").setValue(this.plugin.settings.model).onChange(async (value) => {
+      (drop) => drop.addOption("claude-opus-4-6", "Claude Opus 4.6 \u2014 most capable").addOption("claude-sonnet-4-6", "Claude Sonnet 4.6 \u2014 fast & smart").addOption("claude-haiku-4-5", "Claude Haiku 4.5 \u2014 fastest").setValue(this.plugin.settings.model).onChange(async (value) => {
         this.plugin.settings.model = value;
         await this.plugin.saveSettings();
       })
@@ -4172,7 +4171,7 @@ var VoiceNotesSettingTab = class extends import_obsidian.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian.Setting(containerEl).setName("Note settings").setHeading();
+    new import_obsidian.Setting(containerEl).setName("Notes").setHeading();
     new import_obsidian.Setting(containerEl).setName("Include full transcript").setDesc("Append the raw transcription in each note or insertion.").addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.includeTranscript).onChange(async (value) => {
         this.plugin.settings.includeTranscript = value;
@@ -4214,11 +4213,11 @@ var VoiceNotesPlugin = class extends import_obsidian.Plugin {
   }
   openRecordingModal() {
     if (!this.settings.anthropicApiKey) {
-      new import_obsidian.Notice("Say: add your Anthropic API key in Settings \u2192 Say.");
+      new import_obsidian.Notice("Say: add your Anthropic API key in settings \u2192 Say.");
       return;
     }
     if (!this.settings.openAiApiKey) {
-      new import_obsidian.Notice("Say: add your OpenAI API key in Settings \u2192 Say.");
+      new import_obsidian.Notice("Say: add your OpenAI API key in settings \u2192 Say.");
       return;
     }
     const leaf = this.app.workspace.getMostRecentLeaf();

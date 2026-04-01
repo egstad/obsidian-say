@@ -58,6 +58,10 @@
 
 /* ── Recording timer ── */
 
+.voice-notes-timer.is-hidden {
+  display: none;
+}
+
 .voice-notes-timer {
   font-size: 1.75rem;
   font-weight: 700;
@@ -84,4 +88,10 @@
 .voice-notes-btn {
   width: 100%;
   cursor: pointer;
+}
+
+/* ── Settings inputs ── */
+
+.voice-notes-input-full {
+  width: 100%;
 }

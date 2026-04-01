@@ -1,0 +1,87 @@
+/* ── Voice Notes AI ─────────────────────────────────────────────── */
+
+.voice-notes-modal .modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 2rem 1.5rem;
+  min-width: 340px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.voice-notes-title {
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding-top: 0;
+  text-align: center;
+}
+
+.voice-notes-title svg {
+  display: block;
+  height: 40px;
+  width: auto;
+  margin: auto;
+  color: var(--text-normal);
+}
+
+/* ── Status text ── */
+
+.voice-notes-status {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  min-height: 1.4em;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.voice-notes-status.error {
+  color: var(--text-error);
+}
+
+/* ── Waveform canvas ── */
+
+.voice-notes-visualizer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+.voice-notes-canvas {
+  display: block;
+  border-radius: var(--radius-s);
+}
+
+/* ── Recording timer ── */
+
+.voice-notes-timer {
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-red);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  height: 2rem;
+  line-height: 1;
+  text-align: center;
+  width: 100%;
+}
+
+/* ── Buttons ── */
+
+.voice-notes-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.voice-notes-btn {
+  width: 100%;
+  cursor: pointer;
+}
